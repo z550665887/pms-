@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+		<script>
+function changeToJson () {
+        var inputArr = document.getElementsByClassName("form-control");
+        var length = inputArr.length;
+        var oJson = {};
+        for(var i = 0; i < length; i++){
+             extend(oJson, {inputArr[i].id: inputArr[i].placeholder});
+        }
+        var jSon = JSON.stringify(oJson);
+          
+       return Json;
+}
+
+function post(URL, PARAMS) { 
+	var temp = document.createElement("form"); 
+	temp.action = URL; 
+	temp.id = "gg";
+	temp.method = "post"; 
+	temp.style.display = "none"; 
+	var opt = document.createElement("textarea"); 
+	opt.value = PARAMS; 
+	opt.id = "lalala";
+	document.body.appendChild(temp); 
+	temp.submit(); 
+} 
+
+function btclk () {
+   post({%url "tese"%}, changeTojson);
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+<form  action="{%url "tese"%}" method="get" >
+<div class="row">
+    <div class="box col-md-12">
+	 <div class="box-inner">
+	 <div class="box-header well" data-original-title="">
+            <h2><i class="glyphicon glyphicon-edit"></i> 提案信息</h2>
+
+            <div class="box-icon">
+                <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+            </div>
+        </div>
+       <div class="box-content">
+            <table class="table">
+                <tbody>
+                    {%for n in abc%}
+                    <tr>
+ 						<td width="20%">
+                        <label for="exampleInputPassword1">{{n}}</label>
+                        </td>
+                        <td width="40%">
+                        <input type="user" class="form-control"  placeholder="" id="{{n}}" name="{{n}}">
+                    </td><td width="40%"></td> </tr>
+                    {%endfor%}
+     
+                      
+                    
+					<tr>
+					<td width="20%">
+                        </td>
+ 						<td width="40%">		
+ 					<button onclick = "changeToJson ();" name="lalala"type="button" class="btn btn-primary">提交订单</button>
+                   	 <button  type="submit" class="btn btn-primary">提交订单</button>
+                   	 </td>
+                   	 </tr> </tbody></table>
+            </div>
+        </div>
+
+            </div></from>
+</div>
+
+
+</body>
+</html>

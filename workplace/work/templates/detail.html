@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        ===
+        This comment should NOT be removed.
+
+        Charisma v2.0.0
+
+        Copyright 2012-2014 Muhammad Usman
+        Licensed under the Apache License v2.0
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        http://usman.it
+        http://twitter.com/halalit_usman
+        ===
+    -->
+    <meta charset="utf-8">
+    <title>运维自助平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+
+    <!-- The styles -->
+    <link  href="/static/css/bootstrap-cerulean.min.css" rel="stylesheet">	<!--id="bs-css"-->
+
+    <link href="/static/css/charisma-app.css" rel="stylesheet">
+    <link href='/static/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='/static/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='/static/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='/static/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='/static/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='/static/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='/static/css/jquery.noty.css' rel='stylesheet'>
+    <link href='/static/css/noty_theme_default.css' rel='stylesheet'>
+    <link href='/static/css/elfinder.min.css' rel='stylesheet'>
+    <link href='/static/css/elfinder.theme.css' rel='stylesheet'>
+    <link href='/static/css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='/static/css/uploadify.css' rel='stylesheet'>
+    <link href='/static/css/animate.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="/static/bower_components/jquery/jquery.min.js"></script>
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+   
+    <div class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-inner">
+            <button type="button" class="navbar-toggle pull-left animated flip">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "home" %}"> <img alt="Charisma Logo" src="/static/img/logo20.png" class="hidden-xs"/>
+                <span>运维自助平台</span></a>
+
+            <!-- user dropdown starts -->
+            <div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">{{request.session.user_id}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url "logout"%}">Logout</a></li>
+                </ul>
+            </div>
+            <!-- user dropdown ends -->
+
+            <!-- theme selector ends -->
+
+            <ul class="collapse navbar-collapse nav navbar-nav top-menu">
+
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown"><i class="glyphicon glyphicon-star"></i>常用功能<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">域管理系统</a></li>
+                        <li><a href="#">装机系统</a></li>
+                        <li><a href="#">工作流系统</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <form class="navbar-search pull-left">
+                        <input placeholder="Search" class="search-query form-control col-md-10" name="query"
+                               type="text">
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <!-- topbar ends -->
+            <div id="content" class="col-md-12">
+            <!-- content starts -->
+            <div>
+
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+    	<div class="box">
+        <div class="box-inner ">
+            <div class="box-header well">
+                <h2><i class="glyphicon glyphicon-info-sign"></i> 概要信息</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i
+                            class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i
+                            class="glyphicon glyphicon-remove"></i></a>
+                </div>
+                </div>
+             <div class="box-content row">
+             	<table class="box col-md-8">
+             		<tbody>
+             			<tr>
+             				<td wigth="10px"></td>
+             				<td wigth="20px">标题</td>
+             				<td class="js_title">{{table.type}}</td>
+             			</tr>
+             			<tr>
+             				<td wigth="10px"></td>
+             				<td>提案类型</td>
+             				<td >{{link.typename}}</td>
+             			</tr>
+             		</tbody>
+                </table>
+                <h3 class="proposal_id">提案ID: <span class="js_id">{{table.id}}</span></h3>
+            </div>
+        </div></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="box col-md-4  ">
+        <div class="box-inner ">
+            <div class="box-header well">
+                <h2><i class="glyphicon glyphicon-th"></i>动态信息</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i
+                            class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i
+                            class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content row">
+            	<table class="box col-md-12">
+             		<tbody>
+             			<tr>
+             				<td wigth="2px"></td>
+             				<td wigth="30%">提案状态</td>
+             				{%if table.status == 1 %}
+             				<td wigth="3px"></td>
+             				<td wigth="70%" class="js_title">
+							<span class="label label-danger">未领取</span></td>
+							{%elif table.status == 2%}
+							<td wigth="3px"></td>
+							<td wigth="70%" class="js_title">
+							<span class="label label-default">已领取</span></td>
+							{%else%}
+							<td wigth="3px"></td>
+							<td wigth="70%" class="js_title">
+							<span class="label label-success">执行完成</span></td>
+							{%endif%}
+             			</tr>
+             			<tr>
+             				<td wigth="2px"></td>
+             				<td wigth="30%">提案结果</td>
+             				{%if table.result == 0 %}
+             				<td wigth="3px"></td>
+             				<td wigth="70%" class="js_title">
+							<span class="label label-default">未完成</span></td>
+							{%elif table.result == 1%}
+							<td wigth="3px"></td>
+							<td wigth="70%" class="js_title">
+							<span class="label label-success">执行成功</span></td>
+							{%else%}
+							<td wigth="3px"></td>
+							<td wigth="70%" class="js_title">
+							<span class="label label-danger">执行失败</span></td>
+							{%endif%}
+             			</tr>
+             			<tr>
+             				<td wigth="2px"></td>
+             				<td wigth="30%">执行人</td>
+             				<td wigth="3px"></td>
+             				<td wigth="70%" class="js_exe_person">{{person.user}}</td>
+             			</tr>
+             		</tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+    <div class="box col-md-8">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-user"></i>提案详细信息</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i
+                            class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content row">
+             	<table class="box col-md-8">
+             		<tbody>
+             			<tr>
+             				<td wigth="3px"></td>
+             				<td wigth="150px">标题</td>
+             				<td class="js_title">{{table.type}}</td>
+             			</tr>
+             			<tr>
+             				<td wigth="3px"></td>
+             				<td>提案类型</td>
+             				<td class="js_name">{{link.typename}}</td>
+             			</tr>
+             			<tr>
+             				<td wigth="3px"></td>
+             				<td>申请人</td>
+             				<td class="js_name">{{table.user}}</td>
+             			</tr>
+             			<tr>
+             				<td wigth="3px"></td>
+             				<td>申请人部门</td>
+             				{%if table.critical == 1%}
+             				<td><span class="label label-danger">紧急</span></td>
+             				{% else%}
+             				<td><span class="label label-default">不紧急</span></td>
+             				{%endif%}
+             			</tr>
+             			{%for key,value in abc.items%}
+             			<tr>
+             				<td wigth="3px"></td>
+             				<td>{{key}}</td>
+             				<td class="js_name">{{value}}</td>
+             			</tr>
+             			{%endfor%}
+             		</tbody>
+                </table>
+            </div>
+</div>
+
+    <!--/span-->
+    {%if request.GET.type == "2"%}
+    <div class="box">
+                       <div class="box-inner">
+                       <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-user"></i>您需要执行此提案</h2>
+                </div>
+                <div class="box-content row">
+                <div class=" col-md-12">
+             	<table class="box col-md-5">
+             		<tbody>
+             			
+             		<tr><td wigth="3px"></td><td>
+             			<from action="" method="get">
+             			{%if table.status == 1 %}
+    				<a class="btn " href="{%url 'result'%}?key=3&id={{table.id}}">
+    					<i class="glyphicon glyphicon-edit "></i>
+    					领取</td>
+    					{%else%}
+    					<tr><td wigth="3px"></td><td>
+    					{%endif%}
+    					{%if table.status != 1 %}
+    				<td><a class="btn " href="{%url 'result'%}?key=1&id={{table.id}}">
+    					<i class="glyphicon glyphicon-edit "></i>
+    					执行完成</td>
+    				<td><a class="btn " href="{%url 'result'%}?key=2&id={{table.id}}">
+    					<i class="glyphicon glyphicon-edit "></i>
+    					执行失败</td>
+    					{%endif%}
+    				</tr>
+    				</from>
+             		</tbody>
+                </table>
+               
+            </div>
+            </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+<!-- external javascript -->
+
+<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="/static/js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='/static/bower_components/moment/min/moment.min.js'></script>
+<script src='/static/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='/static/js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="/static/bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="/static/bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="/static/js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="/static/bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="/static/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="/static/js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="/static/js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="/static/js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="/static/js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="/static/js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="/static/js/charisma.js"></script>
+
+</body>
+</html>
